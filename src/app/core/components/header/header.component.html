@@ -1,0 +1,17 @@
+<header class="fixed-top">
+  <nav class="navbar bg-dark" data-bs-theme="dark" >
+    <a class="navbar-brand text-white px-3">PhotoApp</a>
+    <div  *ngIf="false; else login" class="mx-3 text-white">
+      <i class="fa fa-user-circle me-2" ></i>
+      <a class="text-decoration-none text-white">User Name</a>
+      <span class="mx-3" >|</span>
+      <a class="text-white text-decoration-none" style="cursor: pointer">logout</a>
+    </div>
+  </nav>
+</header>
+
+<ng-template #login>
+  <span class="navbar-text text-white px-3" style="cursor: pointer;">
+    <a>Please, login</a>
+  </span>
+</ng-template>

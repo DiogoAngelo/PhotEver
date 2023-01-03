@@ -5,7 +5,7 @@ import { userService } from 'src/app/services/user.service';
   templateUrl: './photo-list.component.html',
 })
 export class PhotoListComponent implements OnInit {
-  constructor(private userService: userService) {}
+  constructor() {}
 
   public ngOnInit(): void {}
 }

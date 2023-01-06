@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { AuthService } from 'src/app/services/auth.service';
+import { ModalService } from 'src/app/services/modal.service';
 
 @Component({
   templateUrl: './sign-in.component.html',
@@ -12,7 +13,8 @@ export class SignInComponent implements OnInit {
   constructor(
     private formBuilder: FormBuilder,
     private authService: AuthService,
-    private router: Router
+    private router: Router,
+    private modalService: ModalService
   ) {}
 
   public ngOnInit(): void {
@@ -30,7 +32,7 @@ export class SignInComponent implements OnInit {
         this.router.navigate(['/photo-list']);
       },
       (err) => {
-        console.log(err.error.message);
+        this.modalService.sendModalContent('Invalid user', err.error?.message);
       }
     );
   }

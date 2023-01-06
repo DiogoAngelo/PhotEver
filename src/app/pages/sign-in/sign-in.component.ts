@@ -26,10 +26,12 @@ export class SignInComponent implements OnInit {
     const userName = this.signInForm.controls.userName.value;
     const password = this.signInForm.controls.password.value;
     this.authService.signIn(userName, password).subscribe(
-      (data) => {
+      () => {
         this.router.navigate(['/photo-list']);
       },
-      (err) => console.log(err.error.message)
+      (err) => {
+        console.log(err.error.message);
+      }
     );
   }
 }

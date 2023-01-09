@@ -20,7 +20,7 @@ export class SignInComponent implements OnInit {
   public ngOnInit(): void {
     this.signInForm = this.formBuilder.group({
       userName: ['', Validators.required],
-      password: ['', Validators.required],
+      password: ['', [Validators.required, Validators.minLength(6)]],
     });
   }
 
@@ -32,7 +32,8 @@ export class SignInComponent implements OnInit {
         this.router.navigate(['/photo-list']);
       },
       (err) => {
-        this.modalService.sendModalContent('Invalid user', err.error?.message);
+        this.modalService.sendModalContent('Login failed', err.error?.message);
+        this.signInForm.reset();
       }
     );
   }

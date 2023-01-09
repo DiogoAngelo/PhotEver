@@ -1,11 +1,12 @@
 import { CommonModule } from '@angular/common';
-import { HttpClient } from '@angular/common/http';
 import { NgModule } from '@angular/core';
-import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { ReactiveFormsModule } from '@angular/forms';
 import { RouterModule } from '@angular/router';
 import { SharedModule } from '../shared/shared.module';
 import { HomeComponent } from './home/home.component';
-import { PhotoListComponent } from './photo-list/photo-list.component';
+import { PhotoListComponent } from './photos/photo-list/photo-list.component';
+import { PhotosComponent } from './photos/photo-list/photos/photos.component';
+import { PhotoComponent } from './photos/photo/photo.component';
 import { SignInComponent } from './sign-in/sign-in.component';
 import { SignUpComponent } from './sign-up/sign-up.component';
 
@@ -15,6 +16,8 @@ import { SignUpComponent } from './sign-up/sign-up.component';
     SignInComponent,
     SignUpComponent,
     PhotoListComponent,
+    PhotoComponent,
+    PhotosComponent,
   ],
   imports: [CommonModule, RouterModule, ReactiveFormsModule, SharedModule],
   exports: [
@@ -22,6 +25,7 @@ import { SignUpComponent } from './sign-up/sign-up.component';
     SignInComponent,
     SignUpComponent,
     PhotoListComponent,
+    PhotosComponent,
   ],
 })
 export class PagesModule {}

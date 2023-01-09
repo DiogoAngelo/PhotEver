@@ -1,7 +1,8 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
+import { NotFoundComponent } from './core/pages/errors/not-found.component';
 import { HomeComponent } from './pages/home/home.component';
-import { PhotoListComponent } from './pages/photo-list/photo-list.component';
+import { PhotoListComponent } from './pages/photos/photo-list/photo-list.component';
 import { SignInComponent } from './pages/sign-in/sign-in.component';
 import { SignUpComponent } from './pages/sign-up/sign-up.component';
 
@@ -26,8 +27,12 @@ const routes: Routes = [
     ],
   },
   {
-    path: 'photo-list',
+    path: 'photo-list/:userName',
     component: PhotoListComponent,
+  },
+  {
+    path: '**',
+    component: NotFoundComponent,
   },
 ];
 

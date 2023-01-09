@@ -20,7 +20,7 @@ export class SignInComponent implements OnInit {
   public ngOnInit(): void {
     this.signInForm = this.formBuilder.group({
       userName: ['', Validators.required],
-      password: ['', [Validators.required, Validators.minLength(6)]],
+      password: ['', [Validators.required, Validators.minLength(3)]],
     });
   }
 
@@ -29,7 +29,7 @@ export class SignInComponent implements OnInit {
     const password = this.signInForm.controls.password.value;
     this.authService.signIn(userName, password).subscribe(
       () => {
-        this.router.navigate(['/photo-list']);
+        this.router.navigate(['/photo-list', userName]);
       },
       (err) => {
         this.modalService.sendModalContent('Login failed', err.error?.message);

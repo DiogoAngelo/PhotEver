@@ -1,5 +1,8 @@
 <ol class="row list-unstyled my-5 py-5">
-  <li *ngFor="let photo of photos" class="col-4">
-    <app-photo [url]="photo.url" [description]="photo.description"></app-photo>
+  <li *ngFor="let cols of rows" class="col-4 text-center">
+    <div *ngFor="let photo of cols
+    " class="col-4">
+      <app-photo [url]="photo.url" [description]="photo.description"></app-photo>
+    </div>
   </li>
 </ol>

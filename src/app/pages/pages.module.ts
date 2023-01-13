@@ -2,6 +2,7 @@ import { CommonModule } from '@angular/common';
 import { NgModule } from '@angular/core';
 import { ReactiveFormsModule } from '@angular/forms';
 import { RouterModule } from '@angular/router';
+import { FilterByDescriptionPipe } from '../shared/pipes/filter-by-description/filter-by-description.pipe';
 import { SharedModule } from '../shared/shared.module';
 import { HomeComponent } from './home/home.component';
 import { PhotoListComponent } from './photos/photo-list/photo-list.component';

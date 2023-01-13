@@ -1,8 +1,9 @@
- <ol class="list-unstyled my-5 py-5 px-4">
+
+ <p *ngIf="!photos.length" class="text-center text-muted">Sorry, there are no photos do be displayed</p>
+ <ol class="list-unstyled">
   <li *ngFor="let cols of rows" class="row">
     <div *ngFor="let photo of cols" class="col-12 col-xl-4">
       <app-photo [url]="photo.url" [description]="photo.description"></app-photo>
     </div>
   </li>
 </ol>
-

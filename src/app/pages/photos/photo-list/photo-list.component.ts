@@ -14,10 +14,15 @@ export class PhotoListComponent implements OnInit {
 
   public photoList: PhotoModel[] = [];
   public userName = this.userService.getUserName();
+  public filter: string = '';
 
   public ngOnInit(): void {
     this.photoService.getPhotoList(this.userName).subscribe((data) => {
       this.photoList = data;
     });
+  }
+
+  public onFilter(event: any) {
+    this.filter = event.target.value;
   }
 }

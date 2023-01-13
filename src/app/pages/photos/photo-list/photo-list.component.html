@@ -1,7 +1,10 @@
 <div class="mt-5 py-5 px-4">
   <div class="text-center">
     <form>
-      <input class="form-control ms-auto w-25 mb-4" type="search" placeholder="search" (keyup)="onFilter($event)" >
+      <input (keyup)="debounceFilter.next($event)"
+      class="form-control ms-auto w-25 mb-4"
+      type="search"
+      placeholder="search">
     </form>
   </div>
   <base-photos [photos]="photoList | filterByDescription: filter"></base-photos>

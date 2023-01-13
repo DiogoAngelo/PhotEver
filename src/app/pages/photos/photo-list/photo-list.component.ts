@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { PhotoService } from 'src/app/services/photo.service';
+import { ActivatedRoute } from '@angular/router';
 import { userService } from 'src/app/services/user.service';
 import { PhotoModel } from 'src/app/shared/models/photo.model';
 
@@ -9,7 +9,7 @@ import { PhotoModel } from 'src/app/shared/models/photo.model';
 export class PhotoListComponent implements OnInit {
   constructor(
     private userService: userService,
-    private photoService: PhotoService
+    private activatedRoute: ActivatedRoute
   ) {}
 
   public photoList: PhotoModel[] = [];
@@ -17,9 +17,7 @@ export class PhotoListComponent implements OnInit {
   public filter: string = '';
 
   public ngOnInit(): void {
-    this.photoService.getPhotoList(this.userName).subscribe((data) => {
-      this.photoList = data;
-    });
+    this.photoList = this.activatedRoute.snapshot.data.photos;
   }
 
   public onFilter(event: any) {

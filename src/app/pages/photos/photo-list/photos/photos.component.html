@@ -1,8 +1,8 @@
-<ol class="row list-unstyled my-5 py-5">
-  <li *ngFor="let cols of rows" class="col-4 text-center">
-    <div *ngFor="let photo of cols
-    " class="col-4">
+ <ol class="list-unstyled my-5 py-5 px-4">
+  <li *ngFor="let cols of rows" class="row">
+    <div *ngFor="let photo of cols" class="col-12 col-xl-4">
       <app-photo [url]="photo.url" [description]="photo.description"></app-photo>
     </div>
   </li>
 </ol>
+

@@ -3,7 +3,22 @@
  <ol class="list-unstyled">
   <li *ngFor="let cols of rows" class="row">
     <div *ngFor="let photo of cols" class="col-12 col-xl-4">
-      <app-photo [url]="photo.url" [description]="photo.description"></app-photo>
+      <div class="card border-light text-center mb-4">
+        <h4 *ngIf="photo.title"class="card-header">{{photo.title}}</h4>
+        <div class="card-block text-justify">
+          <app-photo [url]="photo.url" [description]="photo.description"></app-photo>
+          <div class="d-flex justify-content-center align-items-center gap-3">
+            <span>
+              <i aria-hidden="true" class="fa fa-heart-o fa-1x"></i>
+              {{ photo.likes }}
+            </span>
+            <span>
+              <i aria-hidden="true" class="fa fa-comment-o fa-1x"></i>
+              {{ photo.comments }}
+            </span>
+          </div>
+        </div>
+      </div>
     </div>
   </li>
 </ol>

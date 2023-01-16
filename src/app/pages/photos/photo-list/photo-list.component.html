@@ -8,4 +8,10 @@
     </form>
   </div>
   <base-photos [photos]="photoList | filterByDescription: filter"></base-photos>
+  <div *ngIf="canLoadMore; else noMorePhotos" class="text-center">
+    <base-load-button (onLoad)="loadMorePhotos()"  ></base-load-button>
+  </div>
 </div>
+<ng-template #noMorePhotos>
+  <p class="text-center text-muted" >No more photos to be loaded</p>
+</ng-template>

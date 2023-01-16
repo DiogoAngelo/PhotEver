@@ -1,10 +1,13 @@
 <div class="mt-5 py-5 px-4">
   <div class="text-center">
     <form>
-      <input (keyup)="debounceFilter.next($event)"
-      class="form-control ms-auto w-25 mb-4"
-      type="search"
-      placeholder="search">
+      <div class="d-flex align-items-center justify-content-end gap-2 mb-4">
+        <i aria-hidden="true" class="fa fa-search mr-1"></i>
+        <input (keyup)="debounceFilter.next($event)"
+        class="form-control w-25"
+        type="search"
+        placeholder="search">
+      </div>
     </form>
   </div>
   <base-photos [photos]="photoList | filterByDescription: filter"></base-photos>

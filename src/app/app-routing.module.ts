@@ -1,6 +1,7 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { NotFoundComponent } from './core/pages/errors/not-found.component';
+import { LoginGuard } from './guards/login.guard';
 import { HomeComponent } from './pages/home/home.component';
 import { PhotoListComponent } from './pages/photos/photo-list/photo-list.component';
 import { SignInComponent } from './pages/sign-in/sign-in.component';
@@ -20,6 +21,7 @@ const routes: Routes = [
       {
         path: '',
         component: SignInComponent,
+        canActivate: [LoginGuard],
       },
       {
         path: 'sign-up',

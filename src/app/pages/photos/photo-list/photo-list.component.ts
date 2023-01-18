@@ -17,7 +17,7 @@ export class PhotoListComponent implements OnInit {
   ) {}
 
   public photoList: PhotoModel[] = [];
-  public userName = this.userService.getUserName();
+  public userName = this.activatedRoute.snapshot.params.userName;
   public filter: string = '';
   public debounceFilter: Subject<any> = new Subject<any>();
   public canLoadMore: boolean = true;

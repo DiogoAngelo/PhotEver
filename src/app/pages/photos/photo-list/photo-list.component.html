@@ -1,15 +1,5 @@
 <div class="mt-5 py-5 px-4">
-  <div class="text-center">
-    <form>
-      <div class="d-flex align-items-center justify-content-end gap-2 mb-4">
-        <i aria-hidden="true" class="fa fa-search mr-1"></i>
-        <input (keyup)="debounceFilter.next($event)"
-        class="form-control w-25"
-        type="search"
-        placeholder="search">
-      </div>
-    </form>
-  </div>
+  <base-search (filteredValue)="filter = $event" ></base-search>
   <base-photos [photos]="photoList | filterByDescription: filter"></base-photos>
   <div *ngIf="canLoadMore; else noMorePhotos" class="text-center">
     <base-load-button (onLoad)="loadMorePhotos()"  ></base-load-button>

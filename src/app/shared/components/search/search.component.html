@@ -1,0 +1,14 @@
+<div class="text-center">
+  <form>
+    <div class="d-flex align-items-center justify-content-end gap-2 mb-4">
+        <i aria-hidden="true" class="fa fa-search mr-1"></i>
+        <input
+        (keyup)="onKeyUp()"
+        [(ngModel)]="inputValue"
+        name="filterValue"
+        class="form-control w-25"
+        type="search"
+        placeholder="search">
+    </div>
+  </form>
+</div>

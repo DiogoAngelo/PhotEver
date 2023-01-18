@@ -9,7 +9,7 @@ import { PhotoModel } from 'src/app/shared/models/photo.model';
 @Component({
   templateUrl: './photo-list.component.html',
 })
-export class PhotoListComponent implements OnInit, OnDestroy {
+export class PhotoListComponent implements OnInit {
   constructor(
     private userService: userService,
     private activatedRoute: ActivatedRoute,
@@ -26,14 +26,6 @@ export class PhotoListComponent implements OnInit, OnDestroy {
 
   public ngOnInit(): void {
     this.photoList = this.activatedRoute.snapshot.data.photos;
-
-    this.debounceFilter.pipe(debounceTime(300)).subscribe((filteredText) => {
-      this.filter = filteredText.target.value;
-    });
-  }
-
-  public ngOnDestroy(): void {
-    this.debounceFilter.unsubscribe();
   }
 
   public loadMorePhotos() {

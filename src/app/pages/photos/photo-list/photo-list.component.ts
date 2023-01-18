@@ -1,9 +1,7 @@
 import { Component, OnDestroy, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { Subject } from 'rxjs';
-import { debounceTime, tap } from 'rxjs/operators';
 import { PhotoService } from 'src/app/services/photo.service';
-import { userService } from 'src/app/services/user.service';
 import { PhotoModel } from 'src/app/shared/models/photo.model';
 
 @Component({
@@ -11,7 +9,6 @@ import { PhotoModel } from 'src/app/shared/models/photo.model';
 })
 export class PhotoListComponent implements OnInit {
   constructor(
-    private userService: userService,
     private activatedRoute: ActivatedRoute,
     private photoService: PhotoService
   ) {}
@@ -22,7 +19,7 @@ export class PhotoListComponent implements OnInit {
   public debounceFilter: Subject<any> = new Subject<any>();
   public canLoadMore: boolean = true;
   public currentPage: number = 1;
-  private loadPerClick: number = 12;
+  public loadPerClick: number = 12;
 
   public ngOnInit(): void {
     this.photoList = this.activatedRoute.snapshot.data.photos;

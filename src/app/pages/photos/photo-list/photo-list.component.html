@@ -1,10 +1,10 @@
 <div class="mt-5 py-5 px-4">
   <base-search (filteredValue)="filter = $event" ></base-search>
   <base-photos [photos]="photoList | filterByDescription: filter"></base-photos>
-  <div *ngIf="canLoadMore; else noMorePhotos" class="text-center">
+  <div *ngIf="canLoadMore && photoList.length >= loadPerClick; else noMorePhotos" class="text-center">
     <base-load-button (onLoad)="loadMorePhotos()"  ></base-load-button>
   </div>
 </div>
-<ng-template #noMorePhotos>
-  <p class="text-center text-muted" >No more photos to be loaded</p>
-</ng-template>
+  <ng-template  #noMorePhotos>
+    <p *ngIf="photoList.length > loadPerClick" class="text-center text-muted" >No more photos to be loaded</p>
+  </ng-template>

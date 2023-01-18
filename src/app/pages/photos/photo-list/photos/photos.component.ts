@@ -1,4 +1,5 @@
 import { Component, Input, OnChanges, SimpleChanges } from '@angular/core';
+import { ActivatedRoute } from '@angular/router';
 import { PhotoModel } from 'src/app/shared/models/photo.model';
 
 @Component({

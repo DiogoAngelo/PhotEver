@@ -1,6 +1,6 @@
 <h4>Sign up</h4>
 
-<form  [formGroup]="signUpForm" class="form mt-4">
+<form  [formGroup]="signUpForm" class="form mt-4" (ngSubmit)="signUp()" >
   <div class="form-group mb-3">
     <input formControlName="email" type="email" class="form-control" placeholder="Email">
     <base-validator [control]="signUpForm.controls.email" ></base-validator>

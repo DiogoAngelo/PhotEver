@@ -3,6 +3,7 @@ import { HttpClient } from '@angular/common/http';
 import { environment } from 'src/environments/environment';
 import { tap } from 'rxjs/operators';
 import { userService } from './user.service';
+import { NewUser } from '../shared/models/user.model';
 
 @Injectable({
   providedIn: 'root',
@@ -26,5 +27,9 @@ export class AuthService {
           this.userService.setToken(token);
         })
       );
+  }
+
+  public signUp(newUser: NewUser) {
+    return this.http.post(`${environment.URL}/user/signup`, newUser);
   }
 }

@@ -6,6 +6,7 @@ import { ModalService } from 'src/app/services/modal.service';
 
 @Component({
   templateUrl: './sign-in.component.html',
+  styleUrls: ['./sign-in.component.scss'],
 })
 export class SignInComponent implements OnInit {
   public signInForm!: FormGroup;

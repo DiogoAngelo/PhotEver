@@ -1,0 +1,21 @@
+<div *ngIf="control.touched" class="custom-position" >
+  <small *ngIf="control.errors?.required" class="text-danger d-block mt-0 custom-font-size" >
+    This field is compulsory
+  </small>
+  <small *ngIf="control.errors?.minlength" class="text-danger d-block mt-0 custom-font-size" >
+    This field must contain at least {{control.errors?.minlength.requiredLength}} characters
+  </small>
+  <small *ngIf="control.errors?.maxlength" class="text-danger d-block mt-0 custom-font-size" >
+   This field must not contain more than {{control.errors?.maxlength.requiredLength}} characters
+  </small>
+  <small *ngIf="control.errors?.email" class="text-danger d-block mt-0 custom-font-size" >
+    Invalid email format
+  </small>
+  <small *ngIf="control.errors?.pattern" class="text-danger d-block mt-0 custom-font-size" >
+    Only lowercase is allowed in this field
+  </small>
+  <small *ngIf="control.errors?.userNameTaken" class="text-danger d-block mt-0 custom-font-size" >
+    Username already taken
+  </small>
+</div>
+

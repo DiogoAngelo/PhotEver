@@ -11,6 +11,7 @@
       type="text"
       class="form-control"
       placeholder="User name"
+      [class.custom-error-border]="signInForm.controls.userName.touched && signInForm.controls.userName.errors"
       >
       <base-validator [control]="signInForm.controls.userName" ></base-validator>
     </div>
@@ -20,6 +21,7 @@
       type="password"
       class="form-control"
       placeholder="Password"
+      [class.custom-error-border]="signInForm.controls.password.touched && signInForm.controls.password.errors"
       >
       <base-validator [control]="signInForm.controls.password" ></base-validator>
   </div>

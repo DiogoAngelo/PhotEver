@@ -6,6 +6,7 @@ import { ModalService } from 'src/app/services/modal.service';
 
 @Component({
   templateUrl: './sign-up.component.html',
+  styleUrls: ['./sign-up.component.scss'],
 })
 export class SignUpComponent implements OnInit {
   constructor(
@@ -28,7 +29,7 @@ export class SignUpComponent implements OnInit {
           Validators.maxLength(18),
         ],
       ],
-      password: ['', Validators.required],
+      password: ['', [Validators.required, Validators.minLength(3)]],
     });
   }
 

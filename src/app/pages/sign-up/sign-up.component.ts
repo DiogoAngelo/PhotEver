@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { AuthService } from 'src/app/services/auth.service';
+import { checkUserExistenceValidatorService } from 'src/app/services/checkUserExistence.validator.service';
 import { ModalService } from 'src/app/services/modal.service';
 
 @Component({
@@ -13,7 +14,8 @@ export class SignUpComponent implements OnInit {
     private formBuilder: FormBuilder,
     private authService: AuthService,
     private router: Router,
-    private modalService: ModalService
+    private modalService: ModalService,
+    private checkUserName: checkUserExistenceValidatorService
   ) {}
   public signUpForm!: FormGroup;
 
@@ -28,6 +30,7 @@ export class SignUpComponent implements OnInit {
           Validators.minLength(3),
           Validators.maxLength(18),
         ],
+        this.checkUserName.validateUser(),
       ],
       password: ['', [Validators.required, Validators.minLength(3)]],
     });

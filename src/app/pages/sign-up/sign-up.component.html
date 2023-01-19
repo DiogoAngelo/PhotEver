@@ -31,6 +31,10 @@
       [class.custom-error-border]="signUpForm.controls.userName.errors && signUpForm.controls.userName.touched"
       >
     <base-validator [control]="signUpForm.controls.userName" ></base-validator>
+    <small *ngIf="signUpForm.controls.userName.valid" class="text-success d-block mt-0 custom-validator-success">
+      <i class="fa fa-check-circle"></i>
+      Username available
+    </small>
   </div>
   <div class="form-group mb-4">
     <input

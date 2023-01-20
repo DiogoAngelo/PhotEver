@@ -3,6 +3,7 @@ import { RouterModule, Routes } from '@angular/router';
 import { NotFoundComponent } from './core/pages/errors/not-found.component';
 import { LoginGuard } from './guards/login.guard';
 import { HomeComponent } from './pages/home/home.component';
+import { NewPhotoComponent } from './pages/photos/new-photo/new-photo.component';
 import { PhotoListComponent } from './pages/photos/photo-list/photo-list.component';
 import { SignInComponent } from './pages/sign-in/sign-in.component';
 import { SignUpComponent } from './pages/sign-up/sign-up.component';
@@ -35,6 +36,10 @@ const routes: Routes = [
     resolve: {
       photos: PhotoListResolver,
     },
+  },
+  {
+    path: 'p/add',
+    component: NewPhotoComponent,
   },
   {
     path: '**',

@@ -1,4 +1,4 @@
-<div class="mt-5 py-5 px-4">
+<div class="px-4">
   <base-search (filteredValue)="filter = $event" ></base-search>
   <base-photos [photos]="photoList | filterByDescription: filter"></base-photos>
   <div *ngIf="canLoadMore && photoList.length >= loadPerClick; else noMorePhotos" class="text-center">

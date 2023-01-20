@@ -4,6 +4,7 @@ import { Router } from '@angular/router';
 import { AuthService } from 'src/app/services/auth.service';
 import { checkUserExistenceValidatorService } from 'src/app/services/checkUserExistence.validator.service';
 import { ModalService } from 'src/app/services/modal.service';
+import { NewUser } from 'src/app/shared/models/user.model';
 
 @Component({
   templateUrl: './sign-up.component.html',
@@ -37,7 +38,7 @@ export class SignUpComponent implements OnInit {
   }
 
   public signUp() {
-    const newUser = this.signUpForm.value;
+    const newUser = this.signUpForm.value as NewUser;
     this.authService.signUp(newUser).subscribe(
       () => {
         this.modalService.sendModalContent(

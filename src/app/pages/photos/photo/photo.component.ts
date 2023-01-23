@@ -1,7 +1,7 @@
 import { Component, Input } from '@angular/core';
 import { environment } from 'src/environments/environment';
 
-const CLOUD = `${environment.URL}/imgs`;
+const CLOUD = `${environment.URL}/imgs/`;
 
 @Component({
   selector: 'app-photo',

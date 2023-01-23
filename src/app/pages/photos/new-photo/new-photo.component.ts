@@ -17,6 +17,8 @@ export class NewPhotoComponent implements OnInit {
 
   public photoForm!: FormGroup;
   public file!: File;
+  public preview!: string;
+
   public ngOnInit(): void {
     this.photoForm = this.formBuilder.group({
       file: ['', Validators.required],
@@ -26,7 +28,10 @@ export class NewPhotoComponent implements OnInit {
   }
 
   public getFileFromInput(event: any) {
-    this.file = event.target?.files[0];
+    this.file = event.target.files[0];
+    const reader = new FileReader();
+    reader.readAsDataURL(event.target.files[0]);
+    reader.onload = (event: any) => (this.preview = event.target?.result);
   }
 
   public upload() {

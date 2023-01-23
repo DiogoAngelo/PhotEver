@@ -1,6 +1,6 @@
 
  <p *ngIf="!photos.length" class="text-center text-muted">No photos to be displayed?
-  <a class="text-decoration-none" style="cursor: pointer;"> Upload now!</a>
+  <a  [routerLink]="['/p/add']" class="text-decoration-none" style="cursor: pointer;"> Upload now!</a>
   </p>
  <ol class="list-unstyled">
   <li *ngFor="let cols of rows" class="row">

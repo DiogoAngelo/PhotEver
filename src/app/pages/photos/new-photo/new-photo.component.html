@@ -1,7 +1,17 @@
 <div class="container mt-5">
   <form  [formGroup]="photoForm"  (submit)="upload()" class="row">
-    <div class="col-md-6 mb-5">
-      <input formControlName="file" (change)="getFileFromInput($event)" type="file" accept="image/*">
+    <div class="col-md-6 mb-5 text-center">
+    <button type="button" (click)="fileInput.click()" class="btn btn-primary">
+        <i class="fa fa-image fa-4x align-middle"></i>
+    </button>
+      <input
+        #fileInput
+        formControlName="file"
+        (change)="getFileFromInput($event)"
+        type="file"
+        accept="image/*"
+        hidden
+      >
       <base-validator [control]="photoForm.controls.file" ></base-validator>
     </div>
 
@@ -25,7 +35,7 @@
         <button  [disabled]="photoForm.invalid" type="submit" class="btn btn-primary btn-block w-100">
           Upload
         </button>
-        <a class="btn btn-secondary btn-block w-100">Cancel</a>
+        <a  [routerLink]="['']" class="btn btn-secondary btn-block w-100">Cancel</a>
       </div>
     </div>
   </form>

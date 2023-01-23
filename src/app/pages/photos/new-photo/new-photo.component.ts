@@ -33,13 +33,11 @@ export class NewPhotoComponent implements OnInit {
     const description = this.photoForm.controls.description.value;
     const allowComments = this.photoForm.controls.allowComments.value;
     this.photoService.upload(description, allowComments, this.file).subscribe(
-      (data) => {
-        console.log(data);
+      () => {
         this.router.navigate(['']);
       },
       (err) => {
         this.modalService.sendModalContent('Upload Failed', err.error.message);
-        console.log(err);
       }
     );
   }

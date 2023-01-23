@@ -34,7 +34,7 @@ export class SignInComponent implements OnInit {
       },
       (err) => {
         this.modalService.sendModalContent('Login failed', err.error?.message);
-        this.signInForm.reset();
+        this.signInForm.controls.password.reset();
       }
     );
   }

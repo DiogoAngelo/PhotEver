@@ -3,10 +3,12 @@
     <div class="col-md-6 mb-5 text-center">
 
       <div *ngIf="!preview; else showPreview" class="form-group">
-        <button type="button"
-          (click)="fileInput.click()"
-          class="btn btn-primary">
-            <i class="fa fa-image fa-4x align-middle"></i>
+        <button
+         #openFileButton
+         (click)="fileInput.click()"
+         type="button"
+         class="btn btn-primary">
+          <i class="fa fa-image fa-4x align-middle"></i>
         </button>
         <p>Upload preview</p>
           <input

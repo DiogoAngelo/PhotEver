@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { ModalService } from 'src/app/services/modal.service';
@@ -15,11 +15,17 @@ export class NewPhotoComponent implements OnInit {
     private modalService: ModalService
   ) {}
 
+  @ViewChild('openFileButton')
+  public openFileButton!: ElementRef<HTMLInputElement>;
+
   public photoForm!: FormGroup;
   public file!: File;
   public preview!: string;
 
   public ngOnInit(): void {
+    setTimeout(() => {
+      this.openFileButton.nativeElement.click();
+    });
     this.photoForm = this.formBuilder.group({
       file: ['', Validators.required],
       description: ['', [Validators.required, Validators.maxLength(300)]],
@@ -37,7 +43,13 @@ export class NewPhotoComponent implements OnInit {
   public upload() {
     const description = this.photoForm.controls.description.value;
     const allowComments = this.photoForm.controls.allowComments.value;
-    this.photoService.upload(description, allowComments, this.file).subscribe(
+
+    const formData = new FormData();
+    formData.append('description', description);
+    formData.append('allowComments', allowComments ? 'true' : 'false');
+    formData.append('imageFile', this.file);
+
+    this.photoService.upload(formData).subscribe(
       () => {
         this.router.navigate(['']);
       },

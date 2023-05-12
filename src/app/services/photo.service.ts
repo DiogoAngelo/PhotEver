@@ -25,4 +25,6 @@ export class PhotoService {
   public upload(formData: FormData) {
     return this.http.post(`${environment.URL}/photos/upload`, formData);
   }
+
+  public getPhotoById() {}
 }

@@ -10,6 +10,7 @@ import { SignUpComponent } from './pages/sign-up/sign-up.component';
 import { PhotoListResolver } from './shared/resolver/photo-list.resolver';
 import { AuthService } from './services/auth.service';
 import { AuthGuard } from './guards/auth.guard';
+import { PhotoDetailsComponent } from './pages/photos/photo/photo-details/photo-details.component';
 
 const routes: Routes = [
   {
@@ -43,6 +44,10 @@ const routes: Routes = [
     path: 'p/add',
     component: NewPhotoComponent,
     canActivate: [AuthGuard],
+  },
+  {
+    path: 'p-details/:photoId',
+    component: PhotoDetailsComponent,
   },
   {
     path: '**',

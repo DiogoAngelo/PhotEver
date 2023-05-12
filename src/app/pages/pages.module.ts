@@ -10,6 +10,7 @@ import { PhotosComponent } from './photos/photo-list/photos/photos.component';
 import { PhotoComponent } from './photos/photo/photo.component';
 import { SignInComponent } from './sign-in/sign-in.component';
 import { SignUpComponent } from './sign-up/sign-up.component';
+import { PhotoDetailsComponent } from './photos/photo/photo-details/photo-details.component';
 
 @NgModule({
   declarations: [
@@ -18,6 +19,7 @@ import { SignUpComponent } from './sign-up/sign-up.component';
     SignUpComponent,
     PhotoListComponent,
     PhotoComponent,
+    PhotoDetailsComponent,
     PhotosComponent,
     NewPhotoComponent,
   ],
@@ -27,6 +29,8 @@ import { SignUpComponent } from './sign-up/sign-up.component';
     SignInComponent,
     SignUpComponent,
     PhotoListComponent,
+    PhotoComponent,
+    PhotoDetailsComponent,
     PhotosComponent,
     NewPhotoComponent,
   ],

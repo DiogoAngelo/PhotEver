@@ -4,6 +4,7 @@ import { Observable } from 'rxjs';
 import { environment } from 'src/environments/environment';
 import { PhotoModel } from '../shared/models/photo.model';
 import { userService } from './user.service';
+import { PhotoCommentModel } from '../shared/models/photo-comment.model';
 
 @Injectable({
   providedIn: 'root',
@@ -26,5 +27,19 @@ export class PhotoService {
     return this.http.post(`${environment.URL}/photos/upload`, formData);
   }
 
-  public getPhotoById() {}
+  public getPhotoById(photoId: string | number) {
+    return this.http.get<PhotoModel>(`${environment.URL}/photos/${photoId}`);
+  }
+
+  public getComments(photoId: string | number) {
+    return this.http.get<PhotoCommentModel[]>(
+      `${environment.URL}/photos/${photoId}/comments`
+    );
+  }
+
+  public postComment(photoId: string | number, commentText: string) {
+    return this.http.post(`${environment.URL}/photos/${photoId}/comments`, {
+      commentText,
+    });
+  }
 }

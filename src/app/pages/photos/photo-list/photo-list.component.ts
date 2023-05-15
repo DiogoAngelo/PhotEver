@@ -22,7 +22,10 @@ export class PhotoListComponent implements OnInit {
   public loadPerClick: number = 12;
 
   public ngOnInit(): void {
-    this.photoList = this.activatedRoute.snapshot.data.photos;
+    this.activatedRoute.params.subscribe((params) => {
+      this.userName = params.userName;
+      this.photoList = this.activatedRoute.snapshot.data.photos;
+    });
   }
 
   public loadMorePhotos() {

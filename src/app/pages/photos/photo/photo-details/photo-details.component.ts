@@ -8,8 +8,9 @@ import { PhotoCommentModel } from 'src/app/shared/models/photo-comment.model';
 import { PhotoModel } from 'src/app/shared/models/photo.model';
 
 @Component({
-  templateUrl: './photo-details.component.html',
   selector: 'base-photo-details',
+  templateUrl: './photo-details.component.html',
+  styleUrls: ['./photo-details.component.scss'],
 })
 export class PhotoDetailsComponent implements OnInit {
   constructor(

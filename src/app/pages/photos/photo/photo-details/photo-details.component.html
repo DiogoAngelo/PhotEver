@@ -1,6 +1,6 @@
 <div *ngIf="photoDetails$ | async as photoDetails" class="bg-white border">
-  <div class="row">
-    <div class="col-lg-8">
+  <div class="d-flex justify-content-center gap-4">
+    <div class="col-lg-8 custom-width">
       <app-photo [url]="photoDetails.url" [description]="photoDetails.description"></app-photo>
     </div>
     <div class="col-lg-4 p-4">

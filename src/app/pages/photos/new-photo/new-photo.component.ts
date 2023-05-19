@@ -1,7 +1,7 @@
 import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
-import { ModalService } from 'src/app/services/modal.service';
+import { NotificationModalService } from 'src/app/services/notification-modal.service';
 import { PhotoService } from 'src/app/services/photo.service';
 
 @Component({
@@ -12,7 +12,7 @@ export class NewPhotoComponent implements OnInit {
     private formBuilder: FormBuilder,
     private photoService: PhotoService,
     private router: Router,
-    private modalService: ModalService
+    private modalService: NotificationModalService
   ) {}
 
   @ViewChild('openFileButton')

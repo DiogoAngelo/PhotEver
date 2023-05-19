@@ -3,7 +3,7 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { AuthService } from 'src/app/services/auth.service';
 import { checkUserExistenceValidatorService } from 'src/app/services/checkUserExistence.validator.service';
-import { ModalService } from 'src/app/services/modal.service';
+import { NotificationModalService } from 'src/app/services/notification-modal.service';
 import { NewUser } from 'src/app/shared/models/user.model';
 
 @Component({
@@ -15,7 +15,7 @@ export class SignUpComponent implements OnInit {
     private formBuilder: FormBuilder,
     private authService: AuthService,
     private router: Router,
-    private modalService: ModalService,
+    private modalService: NotificationModalService,
     private checkUserName: checkUserExistenceValidatorService
   ) {}
   public signUpForm!: FormGroup;

@@ -3,7 +3,7 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
 import { Observable } from 'rxjs';
 import { switchMap, tap } from 'rxjs/operators';
-import { ModalService } from 'src/app/services/modal.service';
+import { NotificationModalService } from 'src/app/services/notification-modal.service';
 import { PhotoService } from 'src/app/services/photo.service';
 import { PhotoCommentModel } from 'src/app/shared/models/photo-comment.model';
 import { PhotoModel } from 'src/app/shared/models/photo.model';
@@ -18,7 +18,7 @@ export class PhotoDetailsComponent implements OnInit {
     private activatedRoute: ActivatedRoute,
     private photoService: PhotoService,
     private formBuilder: FormBuilder,
-    private modalService: ModalService,
+    private modalService: NotificationModalService,
     private router: Router
   ) {}
 

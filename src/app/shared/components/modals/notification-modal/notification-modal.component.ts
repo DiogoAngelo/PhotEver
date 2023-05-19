@@ -1,13 +1,13 @@
-import { Component, OnDestroy, OnInit } from '@angular/core';
-import { ModalService } from 'src/app/services/modal.service';
+import { Component, OnInit } from '@angular/core';
+import { NotificationModalService } from 'src/app/services/notification-modal.service';
 
 @Component({
   selector: 'app-modal',
-  templateUrl: './modal.component.html',
-  styleUrls: ['./modal.component.scss'],
+  templateUrl: './notification-modal.component.html',
+  styleUrls: ['./notification-modal.component.scss'],
 })
-export class ModalComponent implements OnInit {
-  constructor(private modalService: ModalService) {}
+export class NotificationModalComponent implements OnInit {
+  constructor(private modalService: NotificationModalService) {}
 
   public title!: string;
   public message!: string;

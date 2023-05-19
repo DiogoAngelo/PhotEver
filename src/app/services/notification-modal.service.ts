@@ -5,7 +5,7 @@ import { ModalContent } from '../shared/models/modal-content.model';
 @Injectable({
   providedIn: 'root',
 })
-export class ModalService {
+export class NotificationModalService {
   constructor() {}
 
   private alertSubject: Subject<ModalContent> = new Subject<ModalContent>();

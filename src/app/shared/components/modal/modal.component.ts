@@ -13,16 +13,16 @@ export class ModalComponent implements OnInit {
   public message!: string;
   public canOpenModal: boolean = false;
 
-  public getModalContent() {
+  public ngOnInit(): void {
+    this.getModalContent();
+  }
+
+  private getModalContent() {
     this.modalService.getModalContent().subscribe((data) => {
       this.title = data?.title;
       this.message = data?.message;
       this.canOpenModal = true;
     });
-  }
-
-  public ngOnInit(): void {
-    this.getModalContent();
   }
 
   public closeModal() {

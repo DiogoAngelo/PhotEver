@@ -42,4 +42,8 @@ export class PhotoService {
       commentText,
     });
   }
+
+  public removePhoto(photoId: string | number) {
+    return this.http.delete(`${environment.URL}/photos/${photoId}`);
+  }
 }

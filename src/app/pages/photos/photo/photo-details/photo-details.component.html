@@ -7,6 +7,10 @@
       <small>
         <p class="fw-bold mb-1">Description:</p>
         <p class="text-left">{{photoDetails.description}}</p>
+        <div class="text-left mb-4">
+          <i class="fa fa-comment-o fa-2x ms-2 me-2"></i>{{ photoDetails.comments }}
+          <i  (click)="onClickRemove()" class="fa fa-trash-o fa-2x pull-right"></i>
+      </div>
         <hr>
       </small>
 

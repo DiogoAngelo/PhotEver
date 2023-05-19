@@ -9,35 +9,43 @@
         <p class="text-left">{{photoDetails.description}}</p>
         <hr>
       </small>
+
+      <ng-container *ngIf="!photoDetails.allowComments" [ngTemplateOutlet]="commentsDisabled" ></ng-container>
+
       <!--------------
         COMMENTS LIST
       ---------------->
       <div *ngIf="(photoComment$ | async) as comments">
         <ul class="list-unstyled custom-scroll-bar">
-            <li *ngFor="let comment of comments">
-                <a class="text-dark fw-bold me-1 text-decoration-none" [routerLink]="['/photo-list', comment.userName]">
-                    {{ comment.userName }}
-                </a>
-                <small>
-                  <em>
-                      {{ comment.date | date:'dd-MM-yyyy HH:mm' }}
-                  </em>
-                </small>
-                <p class="mb-2 text-muted">
-                    {{ comment.text }}
-                </p>
-            </li>
+          <li *ngFor="let comment of comments">
+            <a class="text-dark fw-bold me-1 text-decoration-none" [routerLink]="['/photo-list', comment.userName]">
+              {{ comment.userName }}
+            </a>
+            <small>
+              <em>
+                {{ comment.date | date:'dd-MM-yyyy HH:mm' }}
+              </em>
+            </small>
+            <p class="mb-2 text-muted">
+              {{ comment.text }}
+            </p>
+          </li>
         </ul>
-    <div>
 
-      <div class="mt-4">
-        <form [formGroup]="form" (submit)="save()">
+        <div *ngIf="photoDetails?.allowComments" class="mt-4">
+          <form [formGroup]="form" (submit)="save()">
             <textarea formControlName="comment" class="form-control"></textarea>
             <base-validator [control]="form.controls.comment"></base-validator>
             <button class="btn btn-secondary mt-4 w-100" disabled [disabled]="form.invalid">Post</button>
-        </form>
+          </form>
+        </div>
       </div>
     </div>
   </div>
 </div>
 
+<!-- TEMPLATES -->
+
+<ng-template #commentsDisabled >
+  <p class="text-muted">Comments have been disabled for this image.</p>
+</ng-template>

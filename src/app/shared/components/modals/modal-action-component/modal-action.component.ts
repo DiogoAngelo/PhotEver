@@ -2,7 +2,7 @@ import { Component, EventEmitter, Input, Output } from '@angular/core';
 import { ModalActionService } from 'src/app/services/modal-action.service';
 
 @Component({
-  selector: 'app-action-modal',
+  selector: 'app-modal-action',
   templateUrl: './modal-action.component.html',
   styleUrls: ['./modal-action.component.scss'],
 })
@@ -10,7 +10,7 @@ export class ModalActionComponent {
   constructor(private modalActionService: ModalActionService) {}
 
   @Output() public onConfirmAction = new EventEmitter<any>();
-  @Input() public confirmActionTitle: string = 'Confirm';
+  @Input() public confirmActionButtonTitle: string = 'Confirm';
 
   public title!: string;
   public message!: string;

@@ -2,11 +2,11 @@ import { Component, OnInit } from '@angular/core';
 import { NotificationModalService } from 'src/app/services/notification-modal.service';
 
 @Component({
-  selector: 'app-modal',
-  templateUrl: './notification-modal.component.html',
-  styleUrls: ['./notification-modal.component.scss'],
+  selector: 'app-modal-notification',
+  templateUrl: './modal-notification.component.html',
+  styleUrls: ['./modal-notification.component.scss'],
 })
-export class NotificationModalComponent implements OnInit {
+export class ModalNotificationComponent implements OnInit {
   constructor(private modalService: NotificationModalService) {}
 
   public title!: string;

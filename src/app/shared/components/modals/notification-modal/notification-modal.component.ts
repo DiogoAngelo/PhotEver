@@ -22,6 +22,9 @@ export class NotificationModalComponent implements OnInit {
       this.title = data?.title;
       this.message = data?.message;
       this.canOpenModal = true;
+      setTimeout(() => {
+        this.closeModal();
+      }, 3000);
     });
   }
 

@@ -4,6 +4,7 @@ import { ActivatedRoute, Router } from '@angular/router';
 import { Observable } from 'rxjs';
 import { switchMap, tap } from 'rxjs/operators';
 import { ModalActionService } from 'src/app/services/modal-action.service';
+import { NotificationModalService } from 'src/app/services/notification-modal.service';
 import { PhotoService } from 'src/app/services/photo.service';
 import { PhotoCommentModel } from 'src/app/shared/models/photo-comment.model';
 import { PhotoModel } from 'src/app/shared/models/photo.model';
@@ -18,7 +19,8 @@ export class PhotoDetailsComponent implements OnInit {
     private activatedRoute: ActivatedRoute,
     private photoService: PhotoService,
     private formBuilder: FormBuilder,
-    private modalService: ModalActionService,
+    private modalActionService: ModalActionService,
+    private modalNotificationService: NotificationModalService,
     private router: Router
   ) {}
 
@@ -44,7 +46,7 @@ export class PhotoDetailsComponent implements OnInit {
   }
 
   public openActionModal() {
-    this.modalService.sendModalContent(
+    this.modalActionService.sendModalContent(
       'Delete photo',
       'Are you sure you want to delete this photo?'
     );
@@ -52,6 +54,10 @@ export class PhotoDetailsComponent implements OnInit {
 
   public remove() {
     this.photoService.removePhoto(this.photoId).subscribe(() => {
+      this.modalNotificationService.sendModalContent(
+        '',
+        'Photo deleted successfully'
+      );
       this.router.navigate(['']);
     });
   }

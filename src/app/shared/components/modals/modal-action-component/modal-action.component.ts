@@ -3,10 +3,10 @@ import { ModalActionService } from 'src/app/services/modal-action.service';
 
 @Component({
   selector: 'app-action-modal',
-  templateUrl: './action-modal.component.html',
-  styleUrls: ['./action-modal.component.scss'],
+  templateUrl: './modal-action.component.html',
+  styleUrls: ['./modal-action.component.scss'],
 })
-export class ActionModalComponent {
+export class ModalActionComponent {
   constructor(private modalActionService: ModalActionService) {}
 
   @Output() public onConfirmAction = new EventEmitter<any>();

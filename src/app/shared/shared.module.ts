@@ -7,13 +7,13 @@ import { SearchComponent } from './components/search/search.component';
 import { FocusOnHoverDirective } from './directives/focus-on-hover.directive';
 import { FilterByDescriptionPipe } from './pipes/filter-by-description/filter-by-description.pipe';
 import { FormValidatorComponent } from './validators/form-validator.component';
-import { ActionModalComponent } from './components/modals/action-modal-component/action-modal.component';
+import { ModalActionComponent } from './components/modals/modal-action-component/modal-action.component';
 
 @NgModule({
   declarations: [
     FormValidatorComponent,
     NotificationModalComponent,
-    ActionModalComponent,
+    ModalActionComponent,
     FilterByDescriptionPipe,
     LoadButtonComponent,
     SearchComponent,
@@ -23,7 +23,7 @@ import { ActionModalComponent } from './components/modals/action-modal-component
   exports: [
     FormValidatorComponent,
     NotificationModalComponent,
-    ActionModalComponent,
+    ModalActionComponent,
     FilterByDescriptionPipe,
     LoadButtonComponent,
     SearchComponent,

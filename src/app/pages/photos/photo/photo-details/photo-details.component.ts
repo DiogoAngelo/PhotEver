@@ -3,7 +3,7 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
 import { Observable } from 'rxjs';
 import { switchMap, tap } from 'rxjs/operators';
-import { NotificationModalService } from 'src/app/services/notification-modal.service';
+import { ModalActionService } from 'src/app/services/modal-action.service';
 import { PhotoService } from 'src/app/services/photo.service';
 import { PhotoCommentModel } from 'src/app/shared/models/photo-comment.model';
 import { PhotoModel } from 'src/app/shared/models/photo.model';
@@ -18,7 +18,7 @@ export class PhotoDetailsComponent implements OnInit {
     private activatedRoute: ActivatedRoute,
     private photoService: PhotoService,
     private formBuilder: FormBuilder,
-    private modalService: NotificationModalService,
+    private modalService: ModalActionService,
     private router: Router
   ) {}
 
@@ -43,14 +43,14 @@ export class PhotoDetailsComponent implements OnInit {
       .pipe(tap(() => this.form.reset()));
   }
 
-  public onClickRemove() {
+  public openActionModal() {
     this.modalService.sendModalContent(
-      'Remove photo',
-      'Are you sure you want to remove this photo?'
+      'Delete photo',
+      'Are you sure you want to delete this photo?'
     );
   }
 
-  private remove() {
+  public remove() {
     this.photoService.removePhoto(this.photoId).subscribe(() => {
       this.router.navigate(['']);
     });

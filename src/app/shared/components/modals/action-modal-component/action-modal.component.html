@@ -1,1 +1,14 @@
-<h1>Action modal</h1>
+<div *ngIf="title && message && canOpenModal" class="d-flex justify-content-center align-items-center custom-modal-container">
+  <div class="d-flex flex-column justify-content-center align-items-center p-4 custom-modal-content">
+    <h3>{{title}}</h3>
+    <p class="text-center">{{message}} </p>
+    <div class="d-flex align-content-center gap-4 w-100">
+      <button  (click)="closeModal()" class="btn btn-secondary w-100">
+        Cancel
+      </button>
+      <button  (click)="confirmAction()" class="btn btn-danger w-100">
+        {{confirmActionTitle}}
+      </button>
+    </div>
+  </div>
+</div>

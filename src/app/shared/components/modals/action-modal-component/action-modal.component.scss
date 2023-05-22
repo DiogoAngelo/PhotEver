@@ -1,0 +1,16 @@
+.custom-modal-container{
+  position: absolute;
+  top: 0;
+  left: 50%;
+  height: 100vh;
+  width: 100%;
+  background-color: rgba(0,0,0,.3);
+  transform: translate(-50%, 0);
+}
+
+.custom-modal-content {
+  background-color: white;
+  width: 350px;
+  height: 200px;
+  border-radius: 4px;
+}
